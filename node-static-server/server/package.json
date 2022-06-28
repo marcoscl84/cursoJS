@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
