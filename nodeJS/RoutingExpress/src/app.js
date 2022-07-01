@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const tasksRoutes = require("./routes/tasks")
 
-app.get|("/", (req, res) => {
+app.get("/", (req, res) => {
     res.status(200).send({"message": "API works"})
 })
 
