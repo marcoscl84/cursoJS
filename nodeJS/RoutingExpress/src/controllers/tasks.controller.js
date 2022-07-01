@@ -17,17 +17,16 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
     const { title, userId } = req.body
 
-    if(!title || !userId || isNaN){
+    if(!title || !userId){
         return res.status(400).send({ message: "erro 400", err: "Requisição não formatada corretamente" })
     }
     
     const newTask = {
         title,
         completed: false,
-        "createdAt": Date.now(),
-        "updatedAt": null,
+        createdAt: Date.now(),
+        updatedAt: null,
         userId,
-        "id": tasks[tasks.length - 1].id + 1        
     }
 
     // tasks.push(newTask)

@@ -10,6 +10,7 @@ router.post("/", controller.post)
 
 
 router.route("/:id")
+        //.post(controller.post)
         .get(controller.getById)
         .put(controller.put)
         .patch(controller.patch)
