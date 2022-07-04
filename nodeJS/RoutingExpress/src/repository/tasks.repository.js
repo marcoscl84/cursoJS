@@ -1,4 +1,4 @@
-const tasks = require('./../../data/tasks.json')
+const tasks = require('../../data/tasks')
 
 exports.get = async (id) => {
    
@@ -14,7 +14,7 @@ exports.post = async (data) => {
         ...data,
         id: tasks[tasks.length - 1].id + 1
     }
-    tasks.push(data)
+    tasks.push(newData)
     return newData
 }
 

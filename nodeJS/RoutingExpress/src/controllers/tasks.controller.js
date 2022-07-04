@@ -1,5 +1,5 @@
 const repository = require('./../repository/tasks.repository')
-const tasks = require('./../../data/tasks.json')
+//const tasks = require('./../../data/tasks.json')
 
 
 exports.get = async (req, res) => {
@@ -17,7 +17,7 @@ exports.get = async (req, res) => {
 exports.post = async (req, res) => {
     const { title, userId } = req.body
 
-    if(!title || !userId){
+    if(!title || !userId || isNaN(userId)){
         return res.status(400).send({ message: "erro 400", err: "Requisição não formatada corretamente" })
     }
     
@@ -26,7 +26,7 @@ exports.post = async (req, res) => {
         completed: false,
         createdAt: Date.now(),
         updatedAt: null,
-        userId,
+        userId
     }
 
     // tasks.push(newTask)
