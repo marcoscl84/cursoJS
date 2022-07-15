@@ -25,14 +25,19 @@ const alunosService = new AlunosService()
 
 // Calcula média de cada aluno por materia e cria uma propriedade chamada média
 alunos.forEach(aluno => {
-  alunosService.add(new AlunoModel(aluno))
+  alunosService.add(new AlunoModel(aluno)) // adiciona aluno direto sem passar pelo controller
 })
 
-console.log(alunos)
-
-const alunosView = new AlunosView(document.querySelector(".data-table-alunos"))
+const alunosView = new AlunosView(document.querySelector('.data-table-alunos'))
 
 const alunosController = new AlunosController(alunosService, alunosView)
+
+document.querySelector('form').addEventListener('submit', function (e) {
+  e.preventDefault() // função para o form não ser enviado
+  const nome = document.getElementById('first_name').value
+
+  alunosController.add({ nome })
+})
 
 /* 
 
