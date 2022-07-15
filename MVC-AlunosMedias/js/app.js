@@ -30,6 +30,10 @@ alunos.forEach(aluno => {
 
 console.log(alunos)
 
+const alunosView = new AlunosView(document.querySelector(".data-table-alunos"))
+
+const alunosController = new AlunosController(alunosService, alunosView)
+
 /* 
 
 TODAS AS FUNÇÕES ABAIXO SERÃO DE RESPONSABILIDADE DA VIEW
@@ -48,7 +52,7 @@ let htmlHeaderMaterias = Object.keys(alunos[0].notas)
 htmlHeader.innerHTML += htmlHeaderMaterias
 console.log(htmlHeader)
 
-document.querySelector('.data-table-alunos').appendChild(htmlHeader)
+document.querySelector('.data-table-alunos thead').appendChild(htmlHeader)
 
 // percorre cada aluno e gera html para incluir no TBODY
 function render () {
@@ -60,7 +64,7 @@ function render () {
       htmlMedias += `<td>${aluno.media[materia]}</td>`
     })
     htmlBody.innerHTML = htmlMedias
-    document.querySelector('.data-table-medias').appendChild(htmlBody)
+    document.querySelector('.data-table-alunos tbody').appendChild(htmlBody)
   })
 }
 render()
